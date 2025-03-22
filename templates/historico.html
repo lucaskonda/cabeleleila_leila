@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Histórico de Agendamentos</h1>
+<form method="POST">
+    Data Inicial: <input type="date" name="inicio" required>
+    Data Final: <input type="date" name="fim" required>
+    <input type="submit" value="Buscar">
+</form>
+
+<br>
+
+<table border="1" cellpadding="5" cellspacing="0">
+    <tr>
+        <th>ID</th>
+        <th>Cliente</th>
+        <th>Data</th>
+        <th>Serviços</th>
+        <th>Status</th>
+    </tr>
+    {% for ag in agendamentos %}
+    <tr>
+        <td>{{ ag.id }}</td>
+        <td>{{ ag.cliente }}</td>
+        <td>{{ ag.data_agendada }}</td>
+        <td>{{ ag.servicos }}</td>
+        <td>{{ ag.status }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+<div>
+    <a href="{{ url_for('app_routes.agendar') }}" class="button">Voltar</a>
+    <a href="{{ url_for('app_routes.operacional') }}" class="button">Área Operacional</a>
+    <a href="{{ url_for('app_routes.relatorio') }}" class="button">Relatório Semanal</a>
+</div>
+{% endblock %}
+

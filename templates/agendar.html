@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Agendar Serviço</h2>
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        {% for category, message in messages %}
+            <div class="flash-message {{ category }}">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+
+<form action="{{ url_for('app_routes.agendar') }}" method="POST">
+    <label for="cliente">Cliente:</label>
+    <input type="text" id="cliente" name="cliente" required>
+
+    <label for="data_agendada">Data do Agendamento:</label>
+    <input type="date" id="data_agendada" name="data_agendada" required>
+
+    <label for="servicos">Serviços:</label>
+    <input type="text" id="servicos" name="servicos" required>
+
+    <button type="submit" class="button">Agendar</button>
+</form>
+
+<div>
+    <a href="{{ url_for('app_routes.operacional') }}" class="button">Voltar à Área Operacional</a>
+</div>
+{% endblock %}
+

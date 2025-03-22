@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Área Operacional - Gerenciar Agendamentos</h2>
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        {% for category, message in messages %}
+            <div class="flash-message {{ category }}">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+
+<h3>Lista de Agendamentos</h3>
+<table border="1" cellpadding="5" cellspacing="0">
+    <tr>
+        <th>Cliente</th>
+        <th>Data</th>
+        <th>Serviços</th>
+        <th>Ações</th>
+    </tr>
+    {% for agendamento in agendamentos %}
+    <tr>
+        <td>{{ agendamento.cliente }}</td>
+        <td>{{ agendamento.data_agendada }}</td>
+        <td>{{ agendamento.servicos }}</td>
+        <td>
+            <a href="{{ url_for('app_routes.alterar', agendamento_id=agendamento.id) }}" class="button">Alterar</a>
+            <a href="{{ url_for('app_routes.confirmar', agendamento_id=agendamento.id) }}" class="button">Confirmar</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+<div>
+    <a href="{{ url_for('app_routes.agendar') }}" class="button">Voltar à Página Inicial</a>
+</div>
+{% endblock %}
+

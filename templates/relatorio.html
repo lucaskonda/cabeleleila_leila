@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Relatório Semanal</h1>
+<p>Período: {{ inicio_semana }} a {{ fim_semana }}</p>
+<p>Total de agendamentos: {{ total }}</p>
+
+<div>
+    <a href="{{ url_for('app_routes.agendar') }}" class="button">Voltar à Página Inicial</a>
+    <a href="{{ url_for('app_routes.historico') }}" class="button">Histórico de Agendamentos</a>
+    <a href="{{ url_for('app_routes.operacional') }}" class="button">Área Operacional</a>
+</div>
+{% endblock %}
+
+

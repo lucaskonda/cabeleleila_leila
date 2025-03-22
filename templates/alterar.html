@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Alterar Agendamento</title>
+</head>
+<body>
+    <h1>Alterar Agendamento</h1>
+
+    <form method="POST">
+        <div>
+            <label for="cliente">Cliente:</label>
+            <input type="text" id="cliente" name="cliente" value="{{ agendamento.cliente }}" readonly>
+        </div>
+
+        <div>
+            <label for="data_agendada">Data Agendada:</label>
+            <input type="date" id="data_agendada" name="data_agendada" value="{{ agendamento.data_agendada.strftime('%Y-%m-%d') }}">
+        </div>
+
+        <div>
+            <label for="servicos">Serviços:</label>
+            <input type="text" id="servicos" name="servicos" value="{{ agendamento.servicos }}">
+        </div>
+
+        <button type="submit">Alterar</button>
+    </form>
+
+    <a href="{{ url_for('app_routes.operacional') }}">Voltar para a área operacional</a>
+</body>
+</html>
