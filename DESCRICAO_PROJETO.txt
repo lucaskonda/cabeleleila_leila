@@ -1,0 +1,20 @@
+Nome do Projeto: Sistema de Agendamentos de Salão de Beleza
+
+Objetivo:
+Este projeto tem como objetivo criar um sistema para agendamentos em um salão de beleza. O sistema permite que os clientes agendem serviços, alterem agendamentos, visualizem o histórico de agendamentos, e os operadores gerenciem essas informações de forma simples e eficiente.
+
+Tecnologias utilizadas:
+- Flask (Python) para o backend.
+- SQLite para o banco de dados.
+- HTML e CSS para a interface de usuário.
+
+Como rodar o projeto:
+1. Clone o repositório:
+   git clone https://github.com/seu-usuario/seu-repositorio.git
+2. Instale as dependências:
+   pip install -r requirements.txt
+3. Execute o servidor Flask:
+   python app.py
+4. Acesse o sistema no seu navegador: http://localhost:5000
+
+
